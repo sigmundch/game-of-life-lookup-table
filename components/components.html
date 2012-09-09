@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file. -->
+
+<html>
+  <head>
+    <title>Game of Life Components</title>
+  </head>
+  <body>
+    <!-- An individual cell for our version of Conway's Game of Life. -->
+    <element extends="div" name="x-cell" apply-author-styles>
+      <!-- The DOM portion is trivial; see the styling and Dart behavior. -->
+      <template>
+      </template>
+    </element>
+
+    <!-- A control panel for the Game of Life, with stop/start/step controls -->
+    <element extends="div" name="x-control-panel" apply-author-styles>
+      <template>
+        <button type="button" id="start">Start</button>
+        <button type="button" id="stop">Stop</button>
+        <button type="button" id="step">Step</button>
+      </template>
+    </element>
+
+    <!-- A Game of Life widget. Contains a board and a control panel. -->
+    <element extends="div" name="x-game-of-life" apply-author-styles>
+      <template>
+        <!-- Not much is here, since the cells will be instantiated
+             programatically, once we know how many to make. -->
+        <div is="x-control-panel"></div>
+      </template>
+    </element>
+  </body>
+</html>

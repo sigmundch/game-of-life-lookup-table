@@ -1,0 +1,6 @@
+name: game-of-life
+dependencies:
+  dart-web-components:
+    git: git://github.com/dart-lang/dart-web-components.git
+  unittest:
+    sdk: unittest
