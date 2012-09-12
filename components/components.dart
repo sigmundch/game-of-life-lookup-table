@@ -309,6 +309,9 @@ class GameOfLife implements WebComponent {
   _addShadowChild(child) {
     if (child is WebComponent) {
       _root.nodes.add(child.element);
+      // HACK relies on all elemenents having distinct ids, since DOM nodes
+      // aren't hashable
+      childTable[child.element.id] = child;
     } else {
       _root.nodes.add(child);
     }
@@ -384,7 +387,6 @@ class GameOfLife implements WebComponent {
       cell.game = this;
       cell.id = _generatePositionString(i, j);
       _addShadowChild(cell);
-      childTable[cell.element.id] = cell;
     });
 
     // bind the control panel
