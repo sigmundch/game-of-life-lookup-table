@@ -68,8 +68,6 @@ class Cell implements WebComponent, Hashable {
   bool aliveNextStep;
 
   Cell.component() {
-    element = new DivElement();
-    element.attributes['is'] = 'x-cell';
   }
 
   get classes => element.classes;
@@ -84,6 +82,7 @@ class Cell implements WebComponent, Hashable {
 
   void created(ShadowRoot root) {
     _root = root;
+    element.xtag = this;
     neighbors = <Cell>[];
     element.classes.add('cell');
 
@@ -174,8 +173,6 @@ class ControlPanel implements WebComponent {
   GameOfLife game;
 
   ControlPanel.component() {
-    element = new DivElement();
-    element.attributes['is'] = 'x-control-panel';
   }
 
   factory ControlPanel() {
@@ -188,6 +185,7 @@ class ControlPanel implements WebComponent {
 
   void created(ShadowRoot root) {
     _root = root;
+    element.xtag = this;
   }
 
   void inserted() { }
@@ -252,8 +250,6 @@ class GameOfLife implements WebComponent {
   }
 
   GameOfLife.component() {
-    element = new DivElement();
-    element.attributes['is'] = 'x-game-of-life';
   }
 
   factory GameOfLife() {
@@ -263,6 +259,7 @@ class GameOfLife implements WebComponent {
   /** On creation, initialize fields and then populate the game. */
   void created(ShadowRoot root) {
     _root = root;
+    element.xtag = this;
     on = new GameOfLifeEvents();
     lastRefresh = 0;
     childTable = new Map<String, WebComponent>();
