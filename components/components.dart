@@ -67,8 +67,7 @@ class Cell implements WebComponent, Hashable {
   bool aliveThisStep;
   bool aliveNextStep;
 
-  Cell.component() {
-  }
+  Cell.component();
 
   get classes => element.classes;
   get id => element.id;
@@ -172,8 +171,7 @@ class ControlPanel implements WebComponent {
   ShadowRoot _root;
   GameOfLife game;
 
-  ControlPanel.component() {
-  }
+  ControlPanel.component();
 
   factory ControlPanel() {
     return manager.expandHtml('<div is="x-control-panel"></div>');
@@ -249,8 +247,7 @@ class GameOfLife implements WebComponent {
     _stepTime = time;
   }
 
-  GameOfLife.component() {
-  }
+  GameOfLife.component();
 
   factory GameOfLife() {
     return manager.expandHtml('<div is="x-game-of-life"></div>');
